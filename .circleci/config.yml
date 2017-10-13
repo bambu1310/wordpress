@@ -19,7 +19,7 @@ jobs:
             zip -r wp-cnx.zip .
       - run:
           name: Upload code to S3
-          command: aws s3 cp wp-cnx.zip s3://codedeploy-cnx/wpcnx.zip
+          command: aws s3 cp wp-cnx.zip s3://codedeploy-cuongnx/wpcnx.zip
       - deploy:
           name: Execute CodeDeploy
           command: aws deploy create-deployment --application-name cuongnx_codedeploy --deployment-group-name cuongnx_codedeploy_group --deployment-config-name CodeDeployDefault.AllAtOnce --s3-location bucket=codedeploy-cuongnx,bundleType=zip,key=wpcnx.zip --region ap-southeast-1
